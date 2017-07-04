@@ -23,9 +23,10 @@ impl Config {
 
         let query = args[1].clone();
         let filename = args[2].clone();
-
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+        
         Ok(Config {
-            query, filename
+            query, filename,case_sensitive,
         })
     }
 }
@@ -159,6 +160,7 @@ we can call the `next` method on it! Listing 13-26 has the new code:
 # struct Config {
 #     query: String,
 #     filename: String,
+#     case_sensitive: boolean,
 # }
 #
 impl Config {
@@ -176,7 +178,7 @@ impl Config {
         };
 
         Ok(Config {
-            query, filename
+            query, filename,boolean,
         })
     }
 }
